@@ -33,13 +33,13 @@ struct CarouselView: View {
         ScrollView(.horizontal) {
             HStack {
                 ForEach(movies) { movie in
-                    Image(systemName: movie.imageUrl)
+                    Image(movie.imageUrl)
                         .resizable()
                         .scaledToFill()
                         .frame(height: 170)
                         .background(.red)
-                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                        .padding(.horizontal, 20)
+                        .clipShape(RoundedRectangle(cornerRadius: 8.0))
+                        .padding(.horizontal, 0)
                 }
             }
         }
