@@ -8,27 +8,25 @@ struct Movie: Identifiable {
 }
 
 struct HomeView: View {
-    
-    let movies = [
-        Movie(title: "Title", imageUrl: "popcorn.fill"),
-        Movie(title: "Title", imageUrl: "popcorn.fill"),
-        Movie(title: "Title", imageUrl: "popcorn.fill"),
-        Movie(title: "Title", imageUrl: "popcorn.fill"),
-        Movie(title: "Title", imageUrl: "popcorn.fill"),
-        Movie(title: "Title", imageUrl: "popcorn.fill"),
-        Movie(title: "Title", imageUrl: "popcorn.fill"),
-    ]
+    var movies = (1...15).compactMap {
+        Movie(title: "Title", imageUrl: "img\($0)")
+    }
     
     var body: some View {
         NavigationStack {
             ScrollView {
-                CarouselView(movies: movies, headerTitle: "Trending")
                 
-                CarouselView(movies: movies, headerTitle: "upcoming")
+                if let img = movies.randomElement()?.imageUrl {
+                    BannerView(imageName:img, heightRatio: 0.6)
+                }
                 
-                CarouselView(movies: movies, headerTitle: "Movies")
+                CarouselView(movies: movies.shuffled(), headerTitle: "Trending")
+                
+                CarouselView(movies: movies.shuffled(), headerTitle: "Upcoming")
+                
+                CarouselView(movies: movies.shuffled(), headerTitle: "Movies")
             }
-            .navigationTitle("Nav Title")
+            .ignoresSafeArea()
         }
     }
 }
@@ -36,4 +34,3 @@ struct HomeView: View {
 #Preview {
     HomeView()
 }
-

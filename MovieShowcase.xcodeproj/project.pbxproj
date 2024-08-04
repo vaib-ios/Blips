@@ -19,6 +19,7 @@
 		8BAC148F2C5EA2C30002684C /* MoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAC148E2C5EA2C30002684C /* MoviesView.swift */; };
 		8BAC14912C5EA2F80002684C /* SeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAC14902C5EA2F80002684C /* SeriesView.swift */; };
 		8BF044062C5F948700015038 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF044052C5F948700015038 /* CarouselView.swift */; };
+		8BF0440B2C5FB1AB00015038 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF0440A2C5FB1AB00015038 /* BannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		8BAC148E2C5EA2C30002684C /* MoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesView.swift; sourceTree = "<group>"; };
 		8BAC14902C5EA2F80002684C /* SeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesView.swift; sourceTree = "<group>"; };
 		8BF044052C5F948700015038 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		8BF0440A2C5FB1AB00015038 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				8BF044052C5F948700015038 /* CarouselView.swift */,
+				8BF0440A2C5FB1AB00015038 /* BannerView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				8BAC148B2C5EA13D0002684C /* LikedView.swift in Sources */,
 				8BAC14892C5E9E1D0002684C /* HomeView.swift in Sources */,
 				8BAC148D2C5EA17E0002684C /* LandingTabView.swift in Sources */,
+				8BF0440B2C5FB1AB00015038 /* BannerView.swift in Sources */,
 				8BF044062C5F948700015038 /* CarouselView.swift in Sources */,
 				8BAC145F2C5E9BD90002684C /* MovieShowcaseApp.swift in Sources */,
 				8BAC14912C5EA2F80002684C /* SeriesView.swift in Sources */,
