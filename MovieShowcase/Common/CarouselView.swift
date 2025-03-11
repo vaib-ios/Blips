@@ -33,7 +33,6 @@ struct CarouselView: View {
         CarouselHeaderView(title: headerTitle)
         ScrollView(.horizontal) {
             HStack {
-                //ForEach(movies) { movie in
                 ForEach(0..<movies.count, id: \.self) { index in
                     let movie = movies[index]
                     Image(movie.imageUrl)
@@ -46,7 +45,6 @@ struct CarouselView: View {
                         .onTapGesture {
                             itemTapped(index, movie)
                         }
-                    
                 }
             }
         }
