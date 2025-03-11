@@ -9,8 +9,9 @@ import SwiftUI
 
 struct LandingTabView: View {
     var body: some View {
-        NavigationView {
-            TabView {
+        
+        TabView {
+            NavigationStack {
                 HomeView()
                     .tabItem {
                         Image(systemName: "house")

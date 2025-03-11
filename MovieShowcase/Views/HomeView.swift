@@ -1,7 +1,7 @@
 
 import SwiftUI
 
-struct Movie: Identifiable {
+struct Movie: Identifiable, Hashable {
     var id = UUID()
     var title: String
     var imageUrl: String
@@ -11,41 +11,44 @@ struct HomeView: View {
     var movies = (1...15).compactMap {
         Movie(title: "Title", imageUrl: "img\($0)")
     }
+    @State private var selectedMovie: Movie? = nil
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                
-                if let img = movies.randomElement()?.imageUrl {
-                    BannerView(imageName:img, heightRatio: 0.6)
-                }
-                
-                CarouselView(movies: movies.shuffled(), headerTitle: "Trending", itemTapped: {index, movie in
-                    NavigationLink("", destination: LikedView())
-                })
-                
-                CarouselView(movies: movies.shuffled(), headerTitle: "Upcoming", itemTapped: {index, movie in
-                    
-                })
-                
-                CarouselView(movies: movies.shuffled(), headerTitle: "Movies", itemTapped: {index, movie in
-                    
-                })
+        ScrollView {
+            if let img = movies.randomElement()?.imageUrl {
+                BannerView(imageName:img, heightRatio: 0.6)
             }
-            .ignoresSafeArea(edges: .top)
-            //        .navigationDestination(for: String.self, destination: { str in
-            //            LikedView()
-            //        })
-            //        .toolbar(content: {
-            //            ToolbarItem(placement: .topBarLeading) {
-            //                RoundButton(imageName: "person.fill", size: CGSize(width: 30, height: 30))
-            //            }
-            //
-            //            ToolbarItem(placement: .topBarTrailing) {
-            //                RoundButton(imageName: "magnifyingglass.circle.fill", size: CGSize(width: 30, height: 30))
-            //            }
-            //        })
+            
+            CarouselView(movies: movies.shuffled(), headerTitle: "Trending", itemTapped: {index, movie in
+                selectedMovie = movie
+            })
+            
+            CarouselView(movies: movies.shuffled(), headerTitle: "Upcoming", itemTapped: {index, movie in
+                
+            })
+            
+            CarouselView(movies: movies.shuffled(), headerTitle: "Movies", itemTapped: {index, movie in
+                
+            })
+            //------------------Depricated code------------------------//
+            //NavigationLink(
+            //destination: LikedView(),
+            //tag: selectedMovie ?? Movie(title: "", imageUrl: ""),
+            //selection: $selectedMovie
+            //) {
+            //EmptyView() // The NavigationLink is invisible, activated by selectedItem
+            //}
+            
+            //------------------Undepricated code-----------------------//
+//            NavigationLink(value: selectedMovie) {
+//                EmptyView() // The NavigationLink is invisible, activated by selectedItem
+//            }
+//            .navigationDestination(for: Movie.self) { itemTitle in
+//                LikedView()
+//            }
+            
         }
+        .ignoresSafeArea(edges: .top)
     }
 }
 
