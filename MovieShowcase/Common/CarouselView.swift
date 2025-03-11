@@ -27,19 +27,26 @@ struct CarouselView: View {
     
     @State var movies: [Movie]
     @State var headerTitle: String
+    var itemTapped: (Int, Movie) -> Void
     
     var body: some View {
         CarouselHeaderView(title: headerTitle)
         ScrollView(.horizontal) {
             HStack {
-                ForEach(movies) { movie in
+                //ForEach(movies) { movie in
+                ForEach(0..<movies.count, id: \.self) { index in
+                    let movie = movies[index]
                     Image(movie.imageUrl)
                         .resizable()
                         .scaledToFill()
                         .frame(height: 170)
                         .background(.red)
                         .clipShape(RoundedRectangle(cornerRadius: 8.0))
-                        .padding(.horizontal, 0)
+                        .padding(.horizontal, 2)
+                        .onTapGesture {
+                            itemTapped(index, movie)
+                        }
+                    
                 }
             }
         }
@@ -50,5 +57,5 @@ struct CarouselView: View {
     CarouselView(movies: [Movie(title: "Title", imageUrl: "popcorn.fill"),
                           Movie(title: "Title", imageUrl: "popcorn.fill"),
                           Movie(title: "Title", imageUrl: "popcorn.fill")],
-                 headerTitle: "Title")
+                 headerTitle: "Title", itemTapped: {_,_ in })
 }

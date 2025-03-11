@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LandingTabView: View {
     var body: some View {
-        NavigationStack {
+        NavigationView {
             TabView {
                 HomeView()
                     .tabItem {
