@@ -35,17 +35,22 @@ struct CarouselView: View {
             HStack {
                 ForEach(0..<movies.count, id: \.self) { index in
                     let movie = movies[index]
-                    Image(movie.imageUrl)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 170)
-                        .background(.red)
-                        .clipShape(RoundedRectangle(cornerRadius: 8.0))
-                        .padding(.horizontal, 2)
-                        .onTapGesture {
-                            itemTapped(index, movie)
-                        }
+                    
+                    NavigationLink {
+                        LikedView(movie: movie)
+                    } label: {
+                        Image(movie.imageUrl)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(height: 170)
+                            .background(.red)
+                            .clipShape(RoundedRectangle(cornerRadius: 8.0))
+                            .padding(.horizontal, 2)
+                    }
                 }
+            }
+            .navigationDestination(for: Movie.self) { movie in
+                LikedView(movie: movie) // Navigate to movie detail
             }
         }
     }

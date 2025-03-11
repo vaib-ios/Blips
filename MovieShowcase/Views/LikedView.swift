@@ -25,21 +25,21 @@ struct LikedView: View {
         "popcorn.fill",
     ]
     
+    @State var movie: Movie
+    
     var body: some View {
         NavigationStack {
-            List(images, id: \.self) { name in
                 HStack {
-                    Text("Object Name")
+                    Text(movie.title)
                     Spacer()
-                    Image(systemName: name)
+                    Image(movie.imageUrl)
                 }
                 .padding()
-            }
         }
         .navigationTitle("Liked")
     }
 }
 
 #Preview {
-    LikedView()
+    LikedView(movie: Movie(title: "Title", imageUrl: "imgUrl"))
 }
