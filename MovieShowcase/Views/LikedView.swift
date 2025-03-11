@@ -36,6 +36,7 @@ struct LikedView: View {
                 .padding()
             }
         }
+        .navigationTitle("Liked")
     }
 }
 
