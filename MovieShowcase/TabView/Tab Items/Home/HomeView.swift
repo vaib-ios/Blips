@@ -33,7 +33,8 @@ struct HomeView: View {
                 })
             }
             .ignoresSafeArea(edges: .top)
-        }        
+            .navigationTitle("Home")
+        }
     }
 }
 

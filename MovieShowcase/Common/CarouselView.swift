@@ -10,14 +10,23 @@ import SwiftUI
 struct CarouselHeaderView: View {
     
     @State var title: String
-    
+    var movies = (1...15).compactMap {
+        Movie(title: "Title", imageUrl: "img\($0)")
+    }
     var body: some View {
         HStack {
             Text(title)
                 .font(.title2)
                 .bold()
             Spacer()
-            Text("See all")
+            NavigationLink(value: "", label: {
+                Text("See all")
+            })
+            .navigationDestination(for: String.self) { str in
+                GridView(movies: movies)
+                .toolbar(.hidden, for: .tabBar)
+                    
+            }
         }
         .padding()
     }
@@ -38,6 +47,8 @@ struct CarouselView: View {
                     
                     NavigationLink {
                         LikedView(movie: movie)
+                            .toolbar(.hidden, for: .tabBar)
+
                     } label: {
                         VStack {
                             Image(movie.imageUrl)
@@ -48,7 +59,9 @@ struct CarouselView: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 8.0))
                                 .padding(.horizontal, 2)
                             Text(movie.title)
-                                
+                                .font(.headline)
+                                .foregroundStyle(.primary)
+                                .foregroundColor(.primary)
                         }
                     }
                 }
