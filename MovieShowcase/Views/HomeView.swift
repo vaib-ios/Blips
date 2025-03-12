@@ -21,15 +21,15 @@ struct HomeView: View {
                 }
                 
                 CarouselView(movies: movies.shuffled(), headerTitle: "Trending", itemTapped: {index, movie in
-//                    selectedMovie = movie
+                    selectedMovie = movie
                 })
                 
                 CarouselView(movies: movies.shuffled(), headerTitle: "Upcoming", itemTapped: {index, movie in
-//                    selectedMovie = movie
+                    selectedMovie = movie
                 })
                 
                 CarouselView(movies: movies.shuffled(), headerTitle: "Movies", itemTapped: {index, movie in
-//                    selectedMovie = movie
+                    selectedMovie = movie
                 })
             }
             .ignoresSafeArea(edges: .top)

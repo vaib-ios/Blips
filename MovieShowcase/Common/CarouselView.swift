@@ -39,18 +39,19 @@ struct CarouselView: View {
                     NavigationLink {
                         LikedView(movie: movie)
                     } label: {
-                        Image(movie.imageUrl)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(height: 170)
-                            .background(.red)
-                            .clipShape(RoundedRectangle(cornerRadius: 8.0))
-                            .padding(.horizontal, 2)
+                        VStack {
+                            Image(movie.imageUrl)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(height: 170)
+                                .background(.red)
+                                .clipShape(RoundedRectangle(cornerRadius: 8.0))
+                                .padding(.horizontal, 2)
+                            Text(movie.title)
+                                
+                        }
                     }
                 }
-            }
-            .navigationDestination(for: Movie.self) { movie in
-                LikedView(movie: movie) // Navigate to movie detail
             }
         }
     }
