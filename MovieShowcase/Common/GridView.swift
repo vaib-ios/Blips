@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct GridView: View {
+    var movies = (1...15).compactMap {
+        Movie(title: "Title", imageUrl: "img\($0)")
+    }
+    let columns = [GridItem(.adaptive(minimum: 150)), GridItem(.adaptive(minimum: 150))]
+       
+    let rows = [GridItem(.fixed(50)), GridItem(.fixed(50))]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView(.vertical) {
+            LazyVGrid(columns: columns, spacing: 10) {
+                ForEach(movies, id: \.self) { item in
+                    Image(item.imageUrl)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(alignment: .center)
+                        .background(.red)
+                        .clipShape(RoundedRectangle(cornerRadius: 8.0))
+                        .padding(.horizontal, 6)
+                }
+            }
+            .padding()
+        }
+        .navigationTitle("Movies")
     }
 }
 
 #Preview {
-    GridView()
+    GridView(movies: [Movie(title: "", imageUrl: "")])
 }
