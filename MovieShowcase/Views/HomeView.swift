@@ -14,41 +14,26 @@ struct HomeView: View {
     @State private var selectedMovie: Movie? = nil
     
     var body: some View {
-        ScrollView {
-            if let img = movies.randomElement()?.imageUrl {
-                BannerView(imageName:img, heightRatio: 0.6)
+        NavigationStack {
+            ScrollView {
+                if let img = movies.randomElement()?.imageUrl {
+                    BannerView(imageName:img, heightRatio: 0.6)
+                }
+                
+                CarouselView(movies: movies.shuffled(), headerTitle: "Trending", itemTapped: {index, movie in
+                    selectedMovie = movie
+                })
+                
+                CarouselView(movies: movies.shuffled(), headerTitle: "Upcoming", itemTapped: {index, movie in
+                    selectedMovie = movie
+                })
+                
+                CarouselView(movies: movies.shuffled(), headerTitle: "Movies", itemTapped: {index, movie in
+                    selectedMovie = movie
+                })
             }
-            
-            CarouselView(movies: movies.shuffled(), headerTitle: "Trending", itemTapped: {index, movie in
-                selectedMovie = movie
-            })
-            
-            CarouselView(movies: movies.shuffled(), headerTitle: "Upcoming", itemTapped: {index, movie in
-                
-            })
-            
-            CarouselView(movies: movies.shuffled(), headerTitle: "Movies", itemTapped: {index, movie in
-                
-            })
-            //------------------Depricated code------------------------//
-            //NavigationLink(
-            //destination: LikedView(),
-            //tag: selectedMovie ?? Movie(title: "", imageUrl: ""),
-            //selection: $selectedMovie
-            //) {
-            //EmptyView() // The NavigationLink is invisible, activated by selectedItem
-            //}
-            
-            //------------------Undepricated code-----------------------//
-//            NavigationLink(value: selectedMovie) {
-//                EmptyView() // The NavigationLink is invisible, activated by selectedItem
-//            }
-//            .navigationDestination(for: Movie.self) { itemTitle in
-//                LikedView()
-//            }
-            
-        }
-        .ignoresSafeArea(edges: .top)
+            .ignoresSafeArea(edges: .top)
+        }        
     }
 }
 
