@@ -1,9 +1,3 @@
-//
-//  BannerView.swift
-//  MovieShowcase
-//
-//  Created by Pratik Parmar on 04/08/24.
-//
 
 import SwiftUI
 
