@@ -1,9 +1,3 @@
-//
-//  GridView.swift
-//  MovieShowcase
-//
-//  Created by Vaibhav Limbani on 13/03/25.
-//
 
 import SwiftUI
 

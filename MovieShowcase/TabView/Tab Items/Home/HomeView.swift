@@ -19,20 +19,11 @@ struct HomeView: View {
                 if let img = movies.randomElement()?.imageUrl {
                     BannerView(imageName:img, heightRatio: 0.6)
                 }
-                
-                CarouselView(movies: movies.shuffled(), headerTitle: "Trending", itemTapped: {index, movie in
-                    selectedMovie = movie
-                })
-                
-                CarouselView(movies: movies.shuffled(), headerTitle: "Upcoming", itemTapped: {index, movie in
-                    selectedMovie = movie
-                })
-                
-                CarouselView(movies: movies.shuffled(), headerTitle: "Movies", itemTapped: {index, movie in
-                    selectedMovie = movie
-                })
+                HorizontalGridView(movies: movies.shuffled(), headerTitle: "Trending")
+                HorizontalGridView(movies: movies.shuffled(), headerTitle: "Upcoming")
+                HorizontalGridView(movies: movies.shuffled(), headerTitle: "Movies")
             }
-            .ignoresSafeArea(edges: .top)
+            .ignoresSafeArea(edges: [.top, .leading, .trailing])
             .navigationTitle("Home")
         }
     }
