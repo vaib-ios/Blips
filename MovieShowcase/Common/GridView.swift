@@ -11,18 +11,18 @@ struct GridView: View {
     var movies = (1...15).compactMap {
         Movie(title: "Title", imageUrl: "img\($0)")
     }
-    let columns = [GridItem(.adaptive(minimum: 150)), GridItem(.adaptive(minimum: 150))]
+
+    let columns = [GridItem(.adaptive(minimum: 100, maximum: 200)) , GridItem(.adaptive(minimum: 100, maximum: 200))]
        
-    let rows = [GridItem(.fixed(50)), GridItem(.fixed(50))]
     var body: some View {
         ScrollView(.vertical) {
-            LazyVGrid(columns: columns, spacing: 10) {
+            LazyVGrid(columns: columns, spacing: 20) {
                 ForEach(movies, id: \.self) { item in
+                                            
                     Image(item.imageUrl)
                         .resizable()
                         .scaledToFill()
-                        .frame(alignment: .center)
-                        .background(.red)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
                         .clipShape(RoundedRectangle(cornerRadius: 8.0))
                         .padding(.horizontal, 6)
                 }
