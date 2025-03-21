@@ -24,7 +24,7 @@ struct CarouselHeaderView: View {
     }
 }
 
-struct HorizontalGridView: View {
+struct CarouselView: View {
     var movies = (1...15).compactMap {
         Movie(title: "Title", imageUrl: "img\($0)")
     }
@@ -64,7 +64,7 @@ struct HorizontalGridView: View {
 }
 
 #Preview {
-    HorizontalGridView(movies: [Movie(title: "Title", imageUrl: "popcorn.fill"),
+    CarouselView(movies: [Movie(title: "Title", imageUrl: "popcorn.fill"),
                                 Movie(title: "Title", imageUrl: "popcorn.fill"),
                                 Movie(title: "Title", imageUrl: "popcorn.fill")], headerTitle: "Title")
 }

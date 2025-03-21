@@ -19,9 +19,9 @@ struct HomeView: View {
                 if let img = movies.randomElement()?.imageUrl {
                     BannerView(imageName:img, heightRatio: 0.6)
                 }
-                HorizontalGridView(movies: movies.shuffled(), headerTitle: "Trending")
-                HorizontalGridView(movies: movies.shuffled(), headerTitle: "Upcoming")
-                HorizontalGridView(movies: movies.shuffled(), headerTitle: "Movies")
+                CarouselView(movies: movies.shuffled(), headerTitle: "Trending")
+                CarouselView(movies: movies.shuffled(), headerTitle: "Upcoming")
+                CarouselView(movies: movies.shuffled(), headerTitle: "Movies")
             }
             .ignoresSafeArea(edges: [.top, .leading, .trailing])
             .navigationTitle("Home")
