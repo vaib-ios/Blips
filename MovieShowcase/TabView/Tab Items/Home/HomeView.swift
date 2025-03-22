@@ -11,7 +11,8 @@ struct HomeView: View {
     var movies = (1...15).compactMap {
         Movie(title: "Title", imageUrl: "img\($0)")
     }
-    @State private var selectedMovie: Movie? = nil
+    var headers = ["Trending", "Upcoming", "Movies"]
+        @State private var selectedMovie: Movie? = nil
     
     var body: some View {
         NavigationStack {
@@ -19,9 +20,10 @@ struct HomeView: View {
                 if let img = movies.randomElement()?.imageUrl {
                     BannerView(imageName:img, heightRatio: 0.6)
                 }
-                CarouselView(movies: movies.shuffled(), headerTitle: "Trending")
-                CarouselView(movies: movies.shuffled(), headerTitle: "Upcoming")
-                CarouselView(movies: movies.shuffled(), headerTitle: "Movies")
+                
+                ForEach(headers, id: \.self) { header in
+                    CarouselView(movies: movies.shuffled(), headerTitle: header, shape: .vRectangle(), visibleItemsCount: 2)
+                }
             }
             .ignoresSafeArea(edges: [.top, .leading, .trailing])
             .navigationTitle("Home")
