@@ -12,7 +12,7 @@ struct HomeView: View {
         Movie(title: "Title", imageUrl: "img\($0)")
     }
     var headers = ["Trending", "Upcoming", "Movies"]
-        @State private var selectedMovie: Movie? = nil
+    @State private var selectedMovie: Movie? = nil
     
     var body: some View {
         NavigationStack {
