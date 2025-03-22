@@ -6,6 +6,7 @@ enum CarouselItemShape: Equatable {
     case round
     case vRectangle(roundedCorners: Bool = true)
     case hRectangle(roundedCorners: Bool = true)
+    
 }
 
 struct CarouselHeaderView: View {
