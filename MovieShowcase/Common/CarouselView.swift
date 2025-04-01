@@ -83,7 +83,7 @@ struct CarouselItem: View {
     var body: some View {
         
         if shape == .round {
-            Image(movie.thumbnail)
+            Image(movie.thumbnail ?? "")
                 .resizable()
                 .scaledToFill()
                 .frame(height: itemWidth)
@@ -93,7 +93,7 @@ struct CarouselItem: View {
                 }
                 .shadow(radius: 7)
         } else {
-            Image(movie.thumbnail)
+            Image(movie.thumbnail ?? "")
                 .resizable()
                 .scaledToFill()
                 .frame(height: itemWidth)
