@@ -1,23 +1,15 @@
 
 import SwiftUI
 
-struct Movie: Identifiable, Hashable {
-    var id = UUID()
-    var title: String
-    var imageUrl: String
-}
-
 struct HomeView: View {
-    var movies = (1...15).compactMap {
-        Movie(title: "Title", imageUrl: "img\($0)")
-    }
+    var movies = allMedia
     var headers = ["Trending", "Upcoming", "Movies"]
-    @State private var selectedMovie: Movie? = nil
+    @State private var selectedMovie: Media? = nil
     
     var body: some View {
         NavigationStack {
             ScrollView {
-                if let img = movies.randomElement()?.imageUrl {
+                if let img = movies.randomElement()?.thumbnail {
                     BannerView(imageName:img, heightRatio: 0.6)
                 }
                 
