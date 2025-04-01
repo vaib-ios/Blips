@@ -11,9 +11,7 @@ enum CarouselItemShape: Equatable {
 
 struct CarouselHeaderView: View {
     @State var title: String
-    var movies = (1...15).compactMap {
-        Movie(title: "Title", imageUrl: "img\($0)")
-    }
+    var movies = allMedia
     var body: some View {
         HStack {
             Text(title)
@@ -33,9 +31,7 @@ struct CarouselHeaderView: View {
 }
 
 struct CarouselView: View {
-    var movies = (1...15).compactMap {
-        Movie(title: "Title", imageUrl: "img\($0)")
-    }
+    var movies = allMedia
     
     @State var headerTitle: String?
     @State var shape: CarouselItemShape
@@ -50,10 +46,10 @@ struct CarouselView: View {
 
         ScrollView(.horizontal) {
             LazyHGrid(rows: rows) {
-                ForEach(0..<movies.count, id: \.self) { index in
+                ForEach(0..<movies.count) { index in
                     let movie = movies[index]
                     NavigationLink {
-                        LikedView(movie: movie)
+                        LikedView(media: movie)
                             .toolbar(.hidden, for: .tabBar)
                         
                     } label: {
@@ -73,21 +69,21 @@ struct CarouselView: View {
 }
 
 #Preview {
-    CarouselView(movies: [Movie(title: "Title", imageUrl: "img1"),
-                                Movie(title: "Title", imageUrl: "img2"),
-                          Movie(title: "Title", imageUrl: "img3"), Movie(title: "Title", imageUrl: "img4"), Movie(title: "Title", imageUrl: "img5")], headerTitle: "Title", shape: .round,visibleItemsCount: 3)
+    CarouselView(movies: [Media(title: "Title", thumbnail: "img1"),
+                                Media(title: "Title", thumbnail: "img2"),
+                          Media(title: "Title", thumbnail: "img3"), Media(title: "Title", thumbnail: "img4"), Media(title: "Title", thumbnail: "img5")], headerTitle: "Title", shape: .round,visibleItemsCount: 3)
 }
 
 struct CarouselItem: View {
     
-    var movie: Movie
+    var movie: Media
     var shape: CarouselItemShape
     var itemWidth: CGFloat
     
     var body: some View {
         
         if shape == .round {
-            Image(movie.imageUrl)
+            Image(movie.thumbnail)
                 .resizable()
                 .scaledToFill()
                 .frame(height: itemWidth)
@@ -97,7 +93,7 @@ struct CarouselItem: View {
                 }
                 .shadow(radius: 7)
         } else {
-            Image(movie.imageUrl)
+            Image(movie.thumbnail)
                 .resizable()
                 .scaledToFill()
                 .frame(height: itemWidth)

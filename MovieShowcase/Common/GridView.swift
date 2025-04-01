@@ -2,18 +2,16 @@
 import SwiftUI
 
 struct GridView: View {
-    var movies = (1...15).compactMap {
-        Movie(title: "Title", imageUrl: "img\($0)")
-    }
+    var movies: [Media] = allMedia
 
-    let columns = [GridItem(.adaptive(minimum: 100, maximum: 200)) , GridItem(.adaptive(minimum: 100, maximum: 200))]
+    let columns = [GridItem(.adaptive(minimum: 100, maximum: 200)), GridItem(.adaptive(minimum: 100, maximum: 200))]
        
     var body: some View {
         ScrollView(.vertical) {
             LazyVGrid(columns: columns, spacing: 20) {
-                ForEach(movies, id: \.self) { item in
+                ForEach(movies) { item in
                                             
-                    Image(item.imageUrl)
+                    Image(item.thumbnail)
                         .resizable()
                         .scaledToFill()
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
@@ -28,5 +26,5 @@ struct GridView: View {
 }
 
 #Preview {
-    GridView(movies: [Movie(title: "", imageUrl: "")])
+    GridView(movies: [Media(title: "", thumbnail: "")])
 }

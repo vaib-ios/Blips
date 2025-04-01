@@ -10,7 +10,7 @@ struct LandingTabView: View {
                     Text("Home")
                 }.tag(1)
             
-            LikedView(movie: Movie(title: "", imageUrl: ""))
+            LikedView(media: Media(title: "", thumbnail: ""))
                 .tabItem {
                     Image(systemName: "hand.thumbsup.fill")
                     Text("Liked")

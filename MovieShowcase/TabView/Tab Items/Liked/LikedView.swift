@@ -16,14 +16,14 @@ struct LikedView: View {
         "popcorn.fill",
     ]
     
-    @State var movie: Movie
+    @State var media: Media
     
     var body: some View {
         NavigationStack {
                 HStack {
-                    Text(movie.title)
+                    Text(media.title)
                     Spacer()
-                    Image(movie.imageUrl)
+                    Image(media.thumbnail)
                 }
                 .padding()
         }
@@ -32,5 +32,5 @@ struct LikedView: View {
 }
 
 #Preview {
-    LikedView(movie: Movie(title: "Title", imageUrl: "imgUrl"))
+    LikedView(media: Media(title: "Title", thumbnail: "imgUrl"))
 }
