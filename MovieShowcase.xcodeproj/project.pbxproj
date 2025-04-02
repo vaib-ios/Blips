@@ -23,6 +23,7 @@
 		8BF0440B2C5FB1AB00015038 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF0440A2C5FB1AB00015038 /* BannerView.swift */; };
 		9558F5C52D9C55BD0022AFF5 /* GenreLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9558F5C42D9C55BD0022AFF5 /* GenreLabelView.swift */; };
 		95A37A8C2D820BB3000AB64E /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A37A8B2D820BB3000AB64E /* GridView.swift */; };
+		95A918672D9D6D17004F2438 /* FavouriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A918662D9D6D17004F2438 /* FavouriteButton.swift */; };
 		95B071542D8EB1FD00AD560E /* MovieDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B071532D8EB1FD00AD560E /* MovieDescriptionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		8BF0440A2C5FB1AB00015038 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		9558F5C42D9C55BD0022AFF5 /* GenreLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreLabelView.swift; sourceTree = "<group>"; };
 		95A37A8B2D820BB3000AB64E /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		95A918662D9D6D17004F2438 /* FavouriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteButton.swift; sourceTree = "<group>"; };
 		95B071532D8EB1FD00AD560E /* MovieDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDescriptionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,6 +187,7 @@
 				8BF0440A2C5FB1AB00015038 /* BannerView.swift */,
 				95A37A8B2D820BB3000AB64E /* GridView.swift */,
 				9558F5C42D9C55BD0022AFF5 /* GenreLabelView.swift */,
+				95A918662D9D6D17004F2438 /* FavouriteButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				8BF0440B2C5FB1AB00015038 /* BannerView.swift in Sources */,
 				8BF044062C5F948700015038 /* CarouselView.swift in Sources */,
 				8BAC145F2C5E9BD90002684C /* MovieShowcaseApp.swift in Sources */,
+				95A918672D9D6D17004F2438 /* FavouriteButton.swift in Sources */,
 				95A37A8C2D820BB3000AB64E /* GridView.swift in Sources */,
 				8BAC14912C5EA2F80002684C /* SeriesView.swift in Sources */,
 				9558F5C52D9C55BD0022AFF5 /* GenreLabelView.swift in Sources */,
