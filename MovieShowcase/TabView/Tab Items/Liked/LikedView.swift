@@ -21,9 +21,9 @@ struct LikedView: View {
     var body: some View {
         NavigationStack {
                 HStack {
-                    Text(media.title)
+                    Text(media.title ?? "")
                     Spacer()
-                    Image(media.thumbnail)
+                    Image(media.thumbnail ?? "")
                 }
                 .padding()
         }

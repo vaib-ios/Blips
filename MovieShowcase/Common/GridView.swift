@@ -11,7 +11,7 @@ struct GridView: View {
             LazyVGrid(columns: columns, spacing: 20) {
                 ForEach(movies) { item in
                                             
-                    Image(item.thumbnail)
+                    Image(item.thumbnail ?? "")
                         .resizable()
                         .scaledToFill()
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
