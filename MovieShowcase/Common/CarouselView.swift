@@ -55,7 +55,7 @@ struct CarouselView: View {
                     } label: {
                         VStack(spacing: shape == .round ? 0 : 4) {
                             CarouselItem(movie: movie, shape: shape, itemWidth: (UIScreen.main.bounds.width/CGFloat(visibleItemsCount)))
-                            Text(movie.title)
+                            Text(movie.title ?? "")
                                 .font(.headline)
                                 .foregroundStyle(.primary)
                                 .foregroundColor(.primary)

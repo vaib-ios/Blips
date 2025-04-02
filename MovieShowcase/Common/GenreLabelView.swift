@@ -1,9 +1,3 @@
-//
-//  GenreLabelView.swift
-//  MovieShowcase
-//
-//  Created by Vaibhav Limbani on 01/04/25.
-//
 
 import SwiftUI
 
@@ -20,21 +14,16 @@ struct GenreLabelView: View {
                 .scaledToFit()
                 .frame(height: 13)
                 .foregroundStyle(.yellow)
-                
-            
         })
         .foregroundStyle(.white)
-                .padding([.leading, .trailing], 8)
-                .clipShape(RoundedRectangle(cornerRadius: 4.0))
-                .background(
+        .padding([.leading, .trailing], 8)
+        .clipShape(RoundedRectangle(cornerRadius: 4.0))
+        .background(
+            RoundedRectangle(cornerRadius: 4.0)
+                .fill(Color.gray.opacity(0.5))
+                .overlay(
                     RoundedRectangle(cornerRadius: 4.0)
-                        .fill(Color.gray.opacity(0.5))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 4.0)
-                                .stroke(Color.gray.opacity(0.5))
-                        )
-                )
-        
+                        .stroke(Color.gray.opacity(0.5))))
     }
 }
 
