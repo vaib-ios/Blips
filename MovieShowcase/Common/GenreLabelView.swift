@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct GenreLabelView: View {
+    
+    @State var value: String
+    @State var image: Image?
+    
     var body: some View {
         Label(title: {
             HStack {
@@ -15,29 +19,28 @@ struct GenreLabelView: View {
                     .font(.headline)
             }
         }, icon: {
-            Image(systemName: "star.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 13)
-                .foregroundStyle(.yellow)
-                
-            
+            if let img = image {
+                img
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 13)
+                    .foregroundStyle(.yellow)
+            }
         })
         .foregroundStyle(.white)
-                .padding([.leading, .trailing], 8)
-                .clipShape(RoundedRectangle(cornerRadius: 4.0))
-                .background(
+        .padding([.leading, .trailing], 8)
+        .clipShape(RoundedRectangle(cornerRadius: 4.0))
+        .background(
+            RoundedRectangle(cornerRadius: 4.0)
+                .fill(Color.gray.opacity(0.5))
+                .overlay(
                     RoundedRectangle(cornerRadius: 4.0)
-                        .fill(Color.gray.opacity(0.5))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 4.0)
-                                .stroke(Color.gray.opacity(0.5))
-                        )
+                        .stroke(Color.gray.opacity(0.5))
                 )
-        
+        )
     }
 }
 
 #Preview {
-    GenreLabelView()
+    GenreLabelView(value: "8.4", image: Image(systemName: "star.fill"))
 }
